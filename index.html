@@ -1,0 +1,1874 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Farouk Fit Berriane</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon" type="image/png" href="pic/logo2.png">
+
+
+<style>
+/* ================= VARIABLES ================= */
+:root{
+ --main:#005eff;
+ --bg:#ffffff;
+ --text:#111;
+ --section:#f6f8ff;
+}
+
+body.dark{
+ --bg:#0e1117;
+ --text:#eaeaea;
+ --section:#151a24;
+}
+
+/* ================= GLOBAL ================= */
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+
+body{
+ background:var(--bg);
+ color:var(--text);
+ transition:.4s;
+}
+
+/* ================= HEADER ================= */
+.header{
+ position:fixed;
+ top:0;left:0;
+ width:100%;
+ height:70px;
+ background:var(--bg);
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:0 30px;
+ box-shadow:0 2px 12px rgba(0,0,0,.1);
+ z-index:1000;
+}
+
+.logo{
+ display:flex;
+ align-items:center;
+ gap:10px;
+ color:var(--main);
+ font-weight:bold;
+ font-size:18px;
+}
+.logo img{height:42px}
+
+nav{
+ display:flex;
+ align-items:center;
+ gap:18px;
+}
+
+nav a{
+ text-decoration:none;
+ color:var(--text);
+ font-weight:500;
+ transition:.3s;
+}
+nav a:hover{color:var(--main)}
+
+.btn{
+ background:var(--main);
+ color:#fff;
+ padding:10px 20px;
+ border-radius:8px;
+}
+
+.lang button,
+.dark-btn{
+ border:none;
+ background:none;
+ cursor:pointer;
+ font-weight:bold;
+ color:var(--main);
+}
+/* ================= HAMBURGER ================= */
+.hamburger{
+ display:none;
+ font-size:30px;
+ cursor:pointer;
+ color:var(--main);
+}
+.menu-overlay{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.45);
+ opacity:0;
+ visibility:hidden;
+ transition:.3s;
+ z-index:900;
+}
+
+.menu-overlay.show{
+ opacity:1;
+ visibility:visible;
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+
+ .hamburger{
+  display:block;
+ }
+
+ nav{
+  position:fixed;
+  top:70px;
+  right:-100%;
+  width:260px;
+  height:100vh;
+  background:var(--bg);
+  flex-direction:column;
+  align-items:flex-start;
+  padding:30px 20px;
+  gap:20px;
+  box-shadow:-10px 0 30px rgba(0,0,0,.2);
+  transition:.4s cubic-bezier(.25,.8,.25,1);
+ }
+ /* ================= NAV ACTIONS ================= */
+.nav-actions{
+ display:flex;
+ align-items:center;
+ gap:14px;
+}
+
+/* MOBILE FIX */
+@media(max-width:900px){
+ .nav-actions{
+  width:100%;
+  justify-content:center; /* ⬅️ في الوسط */
+ }
+}
+
+
+ nav.show{
+  right:0;
+ }
+
+ nav a,
+ .lang,
+ .dark-btn{
+  width:100%;
+ }
+
+ .btn{
+  width:100%;
+  text-align:center;
+ }
+
+ .lang{
+  display:flex;
+  gap:10px;
+ }
+}
+
+
+/* ================= HERO ================= */
+.hero{
+ margin-top:70px;
+ min-height:100vh;
+ padding:90px 50px;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ background:
+  linear-gradient(rgba(255,255,255,.92),rgba(255,255,255,.92)),
+  
+}
+body.dark .hero{
+ background:
+  linear-gradient(rgba(14,17,23,.92),rgba(14,17,23,.92)),
+  url("") center/450px no-repeat;
+}
+
+.hero h1{font-size:56px}
+.hero span{color:var(--main)}
+.hero p{margin:20px 0;font-size:18px}
+.hero img{max-width:420px}
+.hero a { text-decoration:none; }
+
+
+
+
+/* ================= COACH ================= */
+.coach{
+ padding:90px 50px;
+ display:flex;
+ gap:70px;
+ align-items:center;
+ background:var(--section);
+ perspective:1200px;
+}
+
+.coach-slider{
+ position:relative;
+ width:360px;
+ flex-shrink:0;
+}
+
+.coach-slider img{
+ width:100%;
+ height:460px;
+ object-fit:cover;
+ border-radius:22px;
+ box-shadow:0 25px 60px rgba(0,94,255,.35);
+ transition:.6s cubic-bezier(.25,.8,.25,1);
+}
+
+/* GLOW */
+.coach-slider img:hover{
+ box-shadow:0 35px 80px rgba(0,94,255,.45);
+}
+
+/* SLIDER BUTTON */
+.nav{
+ position:absolute;
+ top:50%;
+ transform:translateY(-50%);
+ width:40px;
+ height:40px;
+ border:none;
+ border-radius:50%;
+ background:rgba(0,0,0,.6);
+ color:#fff;
+ font-size:20px;
+ cursor:pointer;
+}
+
+.nav.left{left:-15px}
+.nav.right{right:-15px}
+
+/* CONTENT */
+.coach-content h2{
+ font-size:38px;
+ color:var(--main);
+}
+
+.coach-content p{
+ margin:15px 0;
+ line-height:1.6;
+}
+
+.coach-content ul{
+ list-style:none;
+ padding:0;
+}
+
+.coach-content li{
+ margin-bottom:10px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+ .coach{
+  flex-direction:column;
+  text-align:center;
+ }
+
+ .coach-slider{
+  width:100%;
+  max-width:300px;
+ }
+
+ .nav.left{left:0}
+ .nav.right{right:0}
+}
+
+/* ================= COACH ================= */
+
+
+/* ================= FORM ================= */
+.form-overlay{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.85);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ z-index:2000;
+}
+
+.form-box{
+ background:
+  linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.95)),
+  url("") center/250px no-repeat;
+ padding:40px;
+ width:90%;
+ max-width:420px;
+ border-radius:16px;
+ text-align:center;
+ position:relative;
+ animation:zoom .5s ease;
+}
+body.dark .form-box{
+ background:
+  linear-gradient(rgba(14,17,23,.95),rgba(14,17,23,.95)),
+  url("") center/250px no-repeat;
+}
+
+@keyframes zoom{
+ from{transform:scale(.7);opacity:0}
+ to{transform:scale(1);opacity:1}
+}
+
+.form-logo{width:85px;margin-bottom:10px}
+.form-box input,.form-box select{
+ width:100%;
+ padding:12px;
+ margin-bottom:12px;
+ border-radius:8px;
+ border:1px solid #ccc;
+}
+.form-box button{
+ width:100%;
+ padding:13px;
+ border:none;
+ border-radius:8px;
+ background:var(--main);
+ color:#fff;
+ font-size:16px;
+ cursor:pointer;
+}
+.close{
+ position:absolute;
+ top:10px;right:15px;
+ font-size:24px;
+ cursor:pointer;
+}
+
+/* ================= WHATSAPP ================= */
+.whatsapp-float{
+ position:fixed;
+ bottom:25px;right:25px;
+ background:#25D366;
+ color:#fff;
+ padding:14px 16px;
+ border-radius:50%;
+ font-size:22px;
+ text-decoration:none;
+ z-index:3000;
+}
+
+/* ================= ANIMATIONS ================= */
+.animate{
+ opacity:0;
+ transform:translateY(60px) scale(.95);
+ transition:1s cubic-bezier(.2,.8,.2,1);
+}
+.animate.show{
+ opacity:1;
+ transform:none;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:900px){
+ .hero,.coach{
+  flex-direction:column;
+  text-align:center;
+ }
+ .hero h1{font-size:38px}
+ nav{gap:10px;flex-wrap:wrap}
+}
+
+/* ================= HORIZONTAL SCROLL SLIDER ================= */
+.scroll-slider{
+ position:relative;
+  padding:30px 0 60px;  /* ⬅️ moins de padding */
+ margin-top:-60px; 
+ background:var(--bg);
+ overflow:hidden;
+}
+
+.scroll-container{
+ display:flex;
+ gap:30px;
+ padding:0 70px;
+ overflow-x:auto;
+ scroll-behavior:smooth;
+ scrollbar-width:none;
+}
+
+.scroll-container::-webkit-scrollbar{
+ display:none;
+}
+
+
+.scroll-container img{
+ min-width:220px;
+ height:280px;   /* ⬅️ beaucoup plus petit */
+ object-fit:cover;
+ border-radius:16px;
+ box-shadow:0 10px 25px rgba(0,0,0,.22);
+ transition:.35s;
+ cursor:pointer;
+}
+
+
+.scroll-container img:hover{
+ transform:scale(1.05);
+}
+
+
+/* BUTTONS */
+.scroll-btn{
+ position:absolute;
+ top:50%;
+ transform:translateY(-50%);
+ background:rgba(0,0,0,.65);
+ color:#fff;
+ border:none;
+ width:55px;
+ height:55px;
+ font-size:30px;
+ border-radius:50%;
+ cursor:pointer;
+ z-index:10;
+ transition:.3s;
+}
+
+.scroll-btn:hover{
+ background:var(--main);
+}
+
+.scroll-btn.left{left:20px}
+.scroll-btn.right{right:20px}
+
+/* MOBILE */
+@media(max-width:768px){
+ .scroll-container img{
+  min-width:170px;
+  height:220px;
+ }
+ .scroll-btn{
+  width:45px;
+  height:45px;
+ }
+}
+/* ================= LIGHTBOX ================= */
+.lightbox{
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.92);
+ display:none;
+ align-items:center;
+ justify-content:center;
+ z-index:5000;
+}
+
+.lightbox img{
+ max-width:90%;
+ max-height:85%;
+ border-radius:16px;
+ box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.close-lightbox{
+ position:absolute;
+ top:25px;
+ right:35px;
+ font-size:42px;
+ color:#fff;
+ cursor:pointer;
+}
+
+.light-btn{
+ position:absolute;
+ top:50%;
+ transform:translateY(-50%);
+ background:rgba(255,255,255,.2);
+ border:none;
+ color:#fff;
+ font-size:34px;
+ width:60px;
+ height:60px;
+ border-radius:50%;
+ cursor:pointer;
+}
+
+.light-btn.left{left:30px}
+.light-btn.right{right:30px}
+
+/* PAUSE CURSOR */
+.scroll-container img{
+ cursor:zoom-in;
+}
+/*  footer */
+.gym-footer {
+  position: relative;
+  background: #000;
+  color: #fff;
+  padding: 80px 20px 20px;
+  overflow: hidden;
+}
+
+.gym-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("logo2.png") center/600px no-repeat;
+  opacity: 0.05;
+}
+
+.footer-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #000 65%, rgba(0,0,0,0.7));
+}
+
+.footer-content {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  z-index: 2;
+}
+
+.footer-box {
+  transition: transform 0.3s ease;
+}
+
+.footer-bottom{
+  background-color: #151a24;
+}
+.footer-box:hover {
+  transform: translateY(-6px);
+}
+
+.footer-logo {
+  width: 140px;
+  margin-bottom: 15px;
+}
+
+.footer-box h4 {
+  color: #2aa9ff;
+  margin-bottom: 10px;
+}
+
+.footer-box p {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+
+
+.map-box iframe {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  border: none;
+  filter: grayscale(100%);
+  transition: 0.4s;
+}
+
+.map-box iframe:hover {
+  filter: grayscale(0%);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  opacity: 0.6;
+}
+footer .whatsapp{
+ display:none;
+}
+.socials a{
+ display:inline-flex;
+ align-items:center;
+ justify-content:center;
+ width:42px;
+ height:42px;
+ border-radius:50%;
+ background:rgba(42,169,255,.12);
+ color:#2aa9ff;
+ font-size:18px;
+ margin-right:10px;
+ transition:.3s;
+}
+
+.socials a:hover{
+ background:#2aa9ff;
+ color:#fff;
+ box-shadow:0 0 12px #2aa9ff;
+}
+
+
+
+/* MOBILE */
+@media (max-width: 992px) {
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .socials a {
+    margin-right: 10px;
+  }
+}
+/* ================= OFFRES ================= */
+.offers{
+ padding:90px 50px;
+ background:var(--section);
+ text-align:center;
+}
+
+.offers h2{
+ font-size:42px;
+ color:var(--main);
+ margin-bottom:50px;
+}
+
+.offers-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:30px;
+ max-width:1200px;
+ margin:auto;
+}
+
+.offer-card{
+ background:var(--bg);
+ padding:35px 25px;
+ border-radius:20px;
+ box-shadow:0 20px 45px rgba(0,0,0,.15);
+ transition:.4s;
+ position:relative;
+}
+
+.offer-card:hover{
+ transform:translateY(-12px) scale(1.02);
+ box-shadow:0 30px 60px rgba(0,94,255,.35);
+}
+
+.offer-card h3{
+ font-size:24px;
+ margin-bottom:10px;
+}
+
+.price{
+ font-size:32px;
+ font-weight:bold;
+ color:var(--main);
+ margin:15px 0;
+}
+
+.offer-card ul{
+ list-style:none;
+ margin:20px 0;
+}
+
+.offer-card li{
+ margin-bottom:10px;
+ opacity:.9;
+}
+
+.offer-card button{
+ border:none;
+ padding:12px 25px;
+ background:var(--main);
+ color:#fff;
+ border-radius:10px;
+ font-size:15px;
+ cursor:pointer;
+ transition:.3s;
+}
+
+.offer-card button:hover{
+ opacity:.85;
+}
+
+/* POPULAR */
+.offer-card.popular{
+ transform:scale(1.05);
+ border:2px solid var(--main);
+}
+
+.badge{
+ position:absolute;
+ top:-14px;
+ left:50%;
+ transform:translateX(-50%);
+ background:var(--main);
+ color:#fff;
+ padding:6px 14px;
+ border-radius:20px;
+ font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+ .offers-grid{
+  grid-template-columns:1fr;
+ }
+ .offer-card.popular{
+  transform:none;
+ }
+}
+
+/* ================= SERVICES ================= */
+.services{
+ padding:90px 50px;
+ background:var(--section);
+ text-align:center;
+}
+
+.services h2{
+ font-size:42px;
+ color:var(--main);
+ margin-bottom:50px;
+}
+
+
+
+.service-card{
+ background:var(--bg);
+ border-radius:22px;
+ overflow:hidden;
+ box-shadow:0 20px 45px rgba(0,0,0,.18);
+ transition:.5s cubic-bezier(.2,.8,.2,1);
+ cursor:pointer;
+  display:flex;
+ flex-direction:column;
+
+}
+
+
+.service-card img{
+ width:100%;
+ height:320px;
+ object-fit:cover;
+ transition:.5s;
+}
+
+.service-content{
+  flex:1;
+ display:flex;
+ flex-direction:column;
+ justify-content:space-between;
+ padding:30px;
+}
+
+.service-card h3{
+ font-size:20px;
+ margin-bottom:10px;
+}
+
+.service-card p{
+ font-size:14px;
+ opacity:.85;
+}
+
+/* HOVER */
+.service-card:hover{
+ transform:translateY(-12px) scale(1.04);
+ box-shadow:0 30px 70px rgba(0,94,255,.35);
+}
+
+.service-card:hover img{
+ transform:scale(1.12);
+}
+
+/* MOBILE */
+@media(max-width:1100px){
+ .services-grid{
+  grid-template-columns:1fr 1fr;
+ }
+}
+
+/* BUTTON */
+.planning-btn{
+ width:100%;
+ padding:14px;
+ border:none;
+ border-radius:14px;
+ background:#005eff;
+ color:#fff;
+ font-size:15px;
+ font-weight:600;
+ cursor:pointer;
+  margin-top:20px;
+}
+
+/* PLANNING MINI */
+.planning-mini{
+ width:90%;
+ max-width:360px;
+ background:var(--bg);
+ color:var(--text);
+ border-radius:22px;
+ padding:28px 25px;
+ text-align:center;
+ box-shadow:0 20px 50px rgba(0,0,0,.15);
+ opacity:0;
+ max-height:0;
+ overflow:hidden;
+ transform:translateY(-20px);
+ transition:.4s ease;
+ transform-style:preserve-3d;
+}
+
+.planning-mini.active{
+ opacity:1;
+ max-height:300px;
+ transform:translateY(0);
+}
+
+.planning-mini h4{
+ font-size:22px;
+ margin-bottom:20px;
+}
+
+.planning-mini p{
+ margin-bottom:12px;
+}
+
+.planning-mini span{
+ font-weight:600;
+}
+
+/* COLORS */
+.planning-mini.homme{ border-top:6px solid #005eff; }
+.planning-mini.femme{ border-top:6px solid #ff4d8d; }
+
+/* REVEAL */
+.reveal{
+ opacity:0;
+ transform:translateY(40px);
+ transition:.7s;
+}
+.reveal.show{
+ opacity:1;
+ transform:translateY(0);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+ .services-grid{ grid-template-columns:1fr; }
+}
+.services-grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(380px,440px));
+ gap:60px;
+ justify-content:center;
+}
+
+.service-wrapper{
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ gap:25px;
+}
+@media(max-width:600px){
+ .service-card img{
+  height:260px;
+ }
+}
+
+/* ================= FAQ ================= */
+.faq{
+ max-width:900px;
+ margin:100px auto;
+ padding:0 20px;
+}
+
+.faq h2{
+ text-align:center;
+ font-size:38px;
+ margin-bottom:50px;
+ color:var(--main);
+}
+
+.faq-item{
+ border-bottom:1px solid #ddd;
+ padding:20px 0;
+}
+
+.faq-question{
+ width:100%;
+ background:none;
+ border:none;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ font-size:20px;
+ font-weight:600;
+ cursor:pointer;
+ text-align:left;
+  color:var(--text);
+}
+
+.faq-question .icon{
+ font-size:28px;
+ color:var(--main);
+ transition:.3s;
+}
+
+.faq-answer{
+ max-height:0;
+ overflow:hidden;
+ transition:.4s ease;
+}
+
+.faq-answer p{
+ margin-top:15px;
+ line-height:1.6;
+ opacity:.9;
+}
+
+/* ACTIVE */
+.faq-item.active .faq-answer{
+ max-height:200px;
+}
+
+.faq-item.active .icon{
+ transform:rotate(180deg);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+ .faq h2{font-size:30px}
+ .faq-question{font-size:18px}
+}
+
+
+
+
+
+
+/* ===== WHATSAPP ===== */
+.whatsapp{
+ position:fixed;
+ bottom:20px;right:20px ;
+ background:#25d366;
+ color:white;
+ width:55px;height:55px;
+ border-radius:50%;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:28px;
+ box-shadow:0 0 20px #25d366;
+ z-index:1000;
+  transition:.3s;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+  <div class="logo">
+    <img src="PIC/logo2.png">
+    <span>Farouk Fit & Gym</span>
+  </div>
+
+  <!-- HAMBURGER -->
+  <div class="hamburger" onclick="toggleMenu()">☰</div>
+  <!-- OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay" ></div>
+  
+  <nav id="navMenu">
+    <a href="#Home"
+       data-fr="Accueil"
+       data-ar="الرئيسية"
+       data-en="Home">Accueil</a>
+
+    <a href="#services"
+       data-fr="Services"
+       data-ar="الخدمات"
+       data-en="Services">Services</a>
+
+    <a href="#Offres"
+       data-fr="Offres"
+       data-ar="العروض"
+       data-en="Plans">Planning</a>
+
+    <a href="#coach"
+       data-fr="Coach"
+       data-ar="المدرب"
+       data-en="Coach">Coach</a>
+
+    <a href="#" class="btn" onclick="openForm()"
+       data-fr="Rejoindre"
+       data-ar="انضم "
+       data-en="Join Us">Rejoindre</a>
+<div class="nav-actions">
+    <span class="lang">
+      <button onclick="setLang('fr')">FR</button>
+      <button onclick="setLang('ar')">AR</button>
+      <button onclick="setLang('en')">EN</button>
+    </span>
+
+    <button class="dark-btn" onclick="toggleDark()">🌙</button>
+    </div>
+  </nav>
+</header>
+
+
+<section id="Home" class="hero animate">
+ <div>
+  <h1 data-fr="Construisez votre <span>corps idéal</span>"
+      data-ar="ابنِ <span>جسم أحلامك</span>"
+      data-en="Build Your <span>Dream Physique</span>">
+      Construisez votre <span>corps idéal</span>
+  </h1>
+
+  <p data-fr="Coaching professionnel et transformation physique"
+     data-ar="تدريب احترافي وتحول بدني"
+     data-en="Professional coaching and body transformation">
+     Coaching professionnel et transformation physique
+  </p>
+
+  <a href="#coach" class="btn"
+     data-fr="Voir le coach"
+     data-ar="عرض المدرب"
+     data-en="View Coach">Voir le coach</a>
+ </div>
+
+ <img src="PIC/logo2.png">
+</section>
+
+<!-- HORIZONTAL IMAGE SLIDER -->
+<section class="scroll-slider animate">
+  <button class="scroll-btn left" onclick="scrollLeft()">&#10094;</button>
+
+  <div class="scroll-container" id="scrollContainer">
+    <!-- SET 1 -->
+    <img src="pic/SALLE1.jpg"onclick="openZoom(this.src)">
+    <img src="pic/SALLE2.jpg" onclick="openZoom(this.src)">
+    <img src="pic/SALLE4.jpg" onclick="openZoom(this.src)">
+    <img src="pic/SALLE5.jpg" onclick="openZoom(this.src)">
+     <img src="pic/SALLE3.jpg" onclick="openZoom(this.src)">
+    <!-- SET 2 (répétition) -->
+  <img src="pic/SALLE1.jpg" onclick="openZoom(this.src)">
+  <img src="pic/SALLE2.jpg" onclick="openZoom(this.src)">
+  <img src="pic/SALLE1.jpg" onclick="openZoom(this.src)">
+  <img src="pic/SALLE4.jpg" onclick="openZoom(this.src)">
+  <img src="pic/SALLE5.jpg" onclick="openZoom(this.src)">
+  
+  </div>
+  <!-- ===== LIGHTBOX ===== -->
+<div class="lightbox" id="lightbox">
+ <span class="close-lightbox" onclick="closeZoom()">×</span>
+ <img id="zoomImg">
+</div>
+
+  <button class="scroll-btn right" onclick="scrollRight()">&#10095;</button>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+ <span class="close-lightbox" onclick="closeLightbox()">×</span>
+ <button class="light-btn left" onclick="prevLight()">&#10094;</button>
+ <img id="lightboxImg">
+ <button class="light-btn right" onclick="nextLight()">&#10095;</button>
+</div>
+
+
+
+
+<!-- ================= SERVICES ================= -->
+<section class="services animate" id="services">
+
+  <h2
+    data-fr="Nos Services"
+    data-ar="خدماتنا"
+    data-en="Our Services">
+    Nos Services
+  </h2>
+
+  <div class="services-grid">
+
+    <!-- MUSCULATION HOMME -->
+      <div class="service-wrapper reveal">
+    <div class="service-card">
+      <img src="PIC/GYM.jpg" alt="Musculation Homme">
+      <div class="service-content">
+        <h3
+          data-fr="Musculation & Fitness Homme"
+          data-ar="كمال الأجسام واللياقة للرجال"
+         data-en="Men Fitness & Bodybuilding">
+          Musculation & Fitness Homme
+        </h3>
+        <p
+          data-fr="Prise de masse et force et performance."
+          data-ar="زيادة الكتلة العضلية والقوة."
+          data-en="Muscle mass, strength and performance.">
+          Prise de masse, force et performance.
+        </p>
+        <button class="planning-btn"
+      data-more-fr="+ Voir planning"
+      data-more-ar="+ عرض البرنامج"
+      data-more-en="+ View schedule"
+      data-less-fr="− Masquer planning"
+      data-less-ar="− إخفاء البرنامج"
+      data-less-en="− Hide schedule">
+      + Voir planning
+     </button>
+      </div>
+    </div>
+      <div class="planning-mini homme">
+    <h4
+     data-fr="Planning Homme"
+     data-ar="برنامج الرجال"
+     data-en="Men Schedule">
+     Planning Homme
+    </h4>
+    <p><strong>Samedi – Jeudi :</strong> 16h – 22h</p>
+    <p><strong>Vendredi :</strong> 16h – 22h</p>
+    <br><br>
+    <span data-fr="Musculation & Fitness" data-ar="كمال الأجسام واللياقة" data-en="Bodybuilding & Fitness">
+     Musculation & Fitness
+    </span>
+   </div>
+   </div>
+
+
+
+    <!-- MUSCULATION FEMME -->
+     <div class="service-wrapper reveal">
+    <div class="service-card">
+      <img src="https://www.fitadium.com/conseils/wp-content/uploads/2020/05/programme-musculation-prise-masse-femme.jpg" alt="Musculation Femme">
+      <div class="service-content">
+        <h3
+          data-fr="Musculation & Fitness Femme"
+          data-ar="كمال الأجسام واللياقة للنساء"
+          data-en="Women Fitness & Bodybuilding">
+         Musculation & Fitness Femme
+        </h3>
+        <p
+          data-fr="Tonification et renforcement musculaire."
+          data-ar="شد وتقوية العضلات."
+          data-en="Toning and muscle strengthening.">
+          Tonification et renforcement musculaire.
+        </p>
+         <button class="planning-btn"
+      data-more-fr="+ Voir planning"
+      data-more-ar="+ عرض البرنامج"
+      data-more-en="+ View schedule"
+      data-less-fr="− Masquer planning"
+      data-less-ar="− إخفاء البرنامج"
+      data-less-en="− Hide schedule">
+      + Voir planning
+     </button>
+      </div>
+    </div>
+     <div class="planning-mini femme">
+    <h4
+     data-fr="Planning Femme"
+     data-ar="برنامج النساء"
+     data-en="Women Schedule">
+     Planning Femme
+    </h4>
+    <p><strong>Samedi</strong> 9h - 11h</p>
+    <p><strong>Lundi – Jeudi :</strong> 08h30 – 12h30</p>
+    <p><strong>Mardi :</strong> 14h – 16h</p>
+    <span data-fr="Musculation & Fitness" data-ar="كمال الأجسام واللياقة" data-en="Bodybuilding & Fitness">
+     Musculation & Fitness
+    </span>
+   </div>
+   </div>
+   </div>
+</section>
+
+
+<!-- ================= OFFRES ================= -->
+<section class="offers animate" id="Offres">
+
+  <h2
+    data-fr="Nos Offres"
+    data-ar="عروضنا"
+    data-en="Our Plans">
+    Nos Offres
+  </h2>
+
+  <div class="offers-grid">
+
+    <!-- OFFRE 1 -->
+    <div class="offer-card">
+      <h3 data-fr="Mensuel" data-ar="شهري" data-en="Monthly">Mensuel</h3>
+      <p class="price">2500 DA</p>
+      <ul>
+        <li data-fr="Accès salle" data-ar="دخول القاعة" data-en="Gym access">Accès salle</li>
+        <li data-fr="Suivi basique" data-ar="متابعة بسيطة" data-en="Basic follow-up">Suivi basique</li>
+      </ul>
+      <button onclick="openForm()"
+        data-fr="S'inscrire"
+        data-ar="اشترك"
+        data-en="Join">
+        S'inscrire
+      </button>
+    </div>
+
+    <!-- OFFRE 2 -->
+    <div class="offer-card popular">
+      <span class="badge"
+        data-fr="Le plus choisi"
+        data-ar="الأكثر اختياراً"
+        data-en="Most Popular">
+        Le plus choisi
+      </span>
+      <h3 data-fr="3 Mois" data-ar="3 أشهر" data-en="3 Months">3 Mois</h3>
+      <p class="price">6000 DA</p>
+      <ul>
+        <li data-fr="Accès illimité" data-ar="دخول غير محدود" data-en="Unlimited access">Accès illimité</li>
+        <li data-fr="Suivi nutrition" data-ar="متابعة غذائية" data-en="Nutrition follow-up">Suivi nutrition</li>
+      </ul>
+      <button onclick="openForm()"
+        data-fr="S'inscrire"
+        data-ar="اشترك"
+        data-en="Join">
+        S'inscrire
+      </button>
+    </div>
+
+    <!-- OFFRE 3 -->
+    <div class="offer-card">
+      <h3 data-fr="Coaching Privé" data-ar="تدريب خاص" data-en="Private Coaching">
+        Coaching Privé
+      </h3>
+      <p class="price">10000 DA</p>
+      <ul>
+        <li data-fr="Coach personnel" data-ar="مدرب شخصي" data-en="Personal coach">Coach personnel</li>
+        <li data-fr="Programme complet" data-ar="برنامج كامل" data-en="Full program">Programme complet</li>
+      </ul>
+      <button onclick="openForm()"
+        data-fr="S'inscrire"
+        data-ar="اشترك"
+        data-en="Join">
+         S'inscrire
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- COACH -->
+<section id="coach" class="coach animate">
+
+ <div class="coach-slider">
+  <button class="nav left" onclick="prevCoach()">&#10094;</button>
+  <img id="coachImg" src="PIC/coach3.jpg">
+  <button class="nav right" onclick="nextCoach()">&#10095;</button>
+ </div>
+
+ <div class="coach-content">
+  <h2
+   data-fr="Coach Farouk Berriane"
+   data-en="Coach Farouk Berriane"
+   data-ar="المدرب فاروق بريان"></h2>
+
+  <p
+   data-fr="Coach certifié en bodybuilding et transformation physique avec plus de 10 ans d’expérience."
+   data-en="Certified bodybuilding and physical transformation coach with over 10 years of experience."
+   data-ar="مدرب معتمد في كمال الأجسام والتحول البدني بخبرة تفوق 10 سنوات."></p>
+
+  <p
+   data-fr="Programmes personnalisés, suivi professionnel et résultats garantis."
+   data-en="Personalized programs, professional follow-up and guaranteed results."
+   data-ar="برامج مخصصة، متابعة احترافية ونتائج مضمونة."></p>
+
+  <ul>
+   <li data-fr="✔ Coaching personnalisé"
+       data-en="✔ Personalized coaching"
+       data-ar="✔ تدريب مخصص"></li>
+
+   <li data-fr="✔ Nutrition adaptée"
+       data-en="✔ Adapted nutrition"
+       data-ar="✔ نظام غذائي مناسب"></li>
+
+   <li data-fr="✔ Suivi professionnel"
+       data-en="✔ Professional follow-up"
+       data-ar="✔ متابعة احترافية"></li>
+  </ul>
+ </div>
+
+</section>
+<!----------------------------------------------------------------------------------------->
+<section class="faq animate" id="faq">
+
+  <h2
+    data-fr="FAQ "
+    data-en="FAQ "
+    data-ar="الأسئلة الشائعة  ">
+    FAQ – Salle de Sport
+  </h2>
+
+  <div class="faq-item active">
+    <button class="faq-question">
+      <span
+        data-fr="Quels sont les horaires de la salle ?"
+        data-en="What are the gym opening hours?"
+        data-ar="ما هي أوقات عمل القاعة؟"></span>
+      <span class="icon">×</span>
+    </button>
+    <div class="faq-answer">
+      <p
+        data-fr="La salle est ouverte tous les jours selon le planning Homme & Femme affiché."
+        data-en="The gym is open every day according to the Men & Women schedule."
+        data-ar="القاعة مفتوحة يوميًا حسب برنامج الرجال والنساء."></p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span
+        data-fr="Y a-t-il un coach professionnel ?"
+        data-en="Is there a professional coach?"
+        data-ar="هل يوجد مدرب محترف؟"></span>
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <p
+        data-fr="Oui, un coach certifié est disponible pour l’accompagnement et le suivi."
+        data-en="Yes, a certified coach is available for guidance and follow-up."
+        data-ar="نعم، يوجد مدرب معتمد للتوجيه والمتابعة."></p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span
+        data-fr="Proposez-vous des programmes personnalisés ?"
+        data-en="Do you offer personalized programs?"
+        data-ar="هل تقدمون برامج مخصصة؟"></span>
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <p
+        data-fr="Les programmes sont adaptés à votre objectif : perte de poids, prise de masse ou fitness."
+        data-en="Programs are adapted to your goal: weight loss, muscle gain or fitness."
+        data-ar="البرامج مخصصة حسب الهدف: تنحيف، زيادة عضل أو لياقة."></p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      <span
+        data-fr="La salle est-elle séparée Homme / Femme ?"
+        data-en="Is the gym separated for men and women?"
+        data-ar="هل القاعة مخصصة للرجال والنساء بأوقات منفصلة؟"></span>
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-answer">
+      <p
+        data-fr="Oui, les horaires sont organisés séparément pour hommes et femmes."
+        data-en="Yes, schedules are organized separately for men and women."
+        data-ar="نعم، الأوقات منظمة بشكل منفصل للرجال والنساء."></p>
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<!-- FORM -->
+<div class="form-overlay" id="formOverlay">
+ <div class="form-box">
+  <span class="close" onclick="closeForm()">×</span>
+  <img src="pic/logo2.png" class="form-logo">
+
+  <form id="joinForm">
+   <input id="name" placeholder="Nom complet" required>
+   <input id="phone" placeholder="Téléphone" required>
+   <input id="age" type="number" placeholder="Âge" required>
+   <select id="gender"><option>Homme</option><option>Femme</option></select>
+   <select id="plan">
+    <option>Mensuel</option>
+    <option>3 Mois</option>
+    <option>6 Mois</option>
+    <option>Coaching Privé</option>
+   </select>
+   <button>S'inscrire</button>
+  </form>
+ </div>
+</div>
+
+<a class="whatsapp" href="https://wa.me/0033677228441" target="_blank">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+ <footer class="gym-footer">
+
+  <!-- Background overlay -->
+  <div class="footer-overlay"></div>
+
+  <div class="footer-content">
+
+    <!-- LOGO + SLOGAN -->
+    <div class="footer-box">
+      <img src="PIC/logo2.png" alt="Farouk Fit" class="footer-logo">
+
+      <p data-lang="slogan">Nous vous aidons à construire un corps plus fort et un esprit plus sain.</p>
+    </div>
+
+    <!-- HORAIRES -->
+    <div class="footer-box">
+      <h4 data-lang="hours_title">Horaires</h4>
+      <p data-lang="hours">Samedi – Jeudi : 08h – 22h </p>
+      <p> Vendredi : 09h – 22h</p>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="footer-box">
+      <h4 data-lang="contact_title">Contact</h4>
+      <p data-lang="address">Berriane, Ghardaïa</p>
+      <p>📞 +33 6 77 22 84 41 </p>
+
+     <div class="socials">
+  <a href="#" aria-label="Facebook">
+    <i class="fab fa-facebook-f"></i>
+  </a>
+   <a href="https://wa.me/0033677228441" target="_blank" aria-label="WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+</div>
+
+    </div>
+
+    <!-- MAP -->
+    <div class="footer-box map-box">
+      <iframe
+        src="https://www.google.com/maps?q=Berriane+Ghardaia&output=embed"
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+    © 2025 Farouk Fit & Gym — made by <a href="https://www.instagram.com/codemc2026/" style="color: #ccc;">CodeMC</a>
+  </div>
+
+</footer>
+
+
+
+
+
+
+<script>
+  
+// function toggleMenu(){
+//  document.getElementById("navMenu").classList.toggle("show");
+// }
+
+
+const navMenu = document.getElementById("navMenu");
+const menuOverlay = document.getElementById("menuOverlay");
+
+/* OPEN / CLOSE */
+function toggleMenu(){
+ navMenu.classList.toggle("show");
+ menuOverlay.classList.toggle("show");
+}
+
+function closeMenu(){
+ navMenu.classList.remove("show");
+ menuOverlay.classList.remove("show");
+}
+
+/* CLOSE ON LINK CLICK */
+document.querySelectorAll("#navMenu a").forEach(link=>{
+ link.addEventListener("click", closeMenu);
+});
+
+/* CLOSE ON LANGUAGE CLICK */
+document.querySelectorAll(".lang button").forEach(btn=>{
+ btn.addEventListener("click", closeMenu);
+});
+
+/* CLOSE ON DARK MODE CLICK */
+document.querySelector(".dark-btn").addEventListener("click", closeMenu);
+
+/* CLOSE WHEN CLICK OUTSIDE (OVERLAY) */
+menuOverlay.addEventListener("click", closeMenu);
+
+
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+/* ================= FORM ================= */
+const formOverlay=document.getElementById("formOverlay");
+const joinForm=document.getElementById("joinForm");
+
+if(formOverlay){
+ window.openForm=()=>formOverlay.style.display="flex";
+ window.closeForm=()=>formOverlay.style.display="none";
+}
+
+if(joinForm){
+ joinForm.addEventListener("submit",e=>{
+  e.preventDefault();
+
+  const name=document.getElementById("name");
+  const phone=document.getElementById("phone");
+  const age=document.getElementById("age");
+  const gender=document.getElementById("gender");
+  const plan=document.getElementById("plan");
+
+  const msg=
+   `Inscription:%0A
+Nom:${name.value}%0A
+Téléphone:${phone.value}%0A
+Âge:${age.value}%0A
+Genre:${gender.value}%0A
+Abonnement:${plan.value}`;
+
+  window.open("https://wa.me/0033677228441?text="+msg,"_blank");
+ });
+}
+
+/* ================= LANG ================= */
+window.setLang=function(l){
+ document.body.dir=l==="ar"?"rtl":"ltr";
+ document.querySelectorAll("[data-"+l+"]").forEach(el=>{
+  el.innerHTML=el.dataset[l];
+ });
+ localStorage.setItem("lang",l);
+}
+
+const savedLang=localStorage.getItem("lang");
+if(savedLang) setLang(savedLang);
+
+/* ================= DARK MODE ================= */
+
+window.toggleDark = function () {
+  document.body.classList.toggle("dark");
+
+  const isDark = document.body.classList.contains("dark");
+  localStorage.setItem("dark", isDark);
+
+  updateDarkIcon();
+};
+
+function updateDarkIcon() {
+  const btn = document.querySelector(".dark-btn");
+  if (!btn) return;
+
+  btn.textContent = document.body.classList.contains("dark")
+    ? "☀️"
+    : "🌙";
+}
+
+/* عند تحميل الصفحة */
+if (localStorage.getItem("dark") === "true") {
+  document.body.classList.add("dark");
+}
+
+updateDarkIcon();
+
+
+
+
+/* ================= SCROLL ANIMATION ================= */
+const obs=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{
+  if(e.isIntersecting) e.target.classList.add("show");
+ });
+},{threshold:.25});
+document.querySelectorAll(".animate").forEach(el=>obs.observe(el));
+
+/* ================= SLIDER ================= */
+const container=document.getElementById("scrollContainer");
+let autoScroll;
+
+if(container){
+ window.scrollRight=function(){
+  container.scrollBy({left:300,behavior:"smooth"});
+  resetAuto();
+ }
+
+ window.scrollLeft=function(){
+  container.scrollBy({left:-300,behavior:"smooth"});
+  resetAuto();
+  
+ }
+
+ function startAutoScroll(){
+  autoScroll=setInterval(()=>{
+   if(container.scrollLeft + container.clientWidth >= container.scrollWidth){
+    container.scrollTo({left:0,behavior:"smooth"});
+   }else{
+    container.scrollBy({left:300,behavior:"smooth"});
+   }
+  },3500);
+ }
+
+ function resetAuto(){
+  clearInterval(autoScroll);
+  startAutoScroll();
+ }
+
+ startAutoScroll();
+ function stopAuto(){
+ clearInterval(autoScroll);
+}
+
+}
+
+});
+function openZoom(src){
+ document.getElementById("zoomImg").src=src;
+ document.getElementById("lightbox").style.display="flex";
+ document.body.style.overflow="hidden";
+}
+function closeZoom(){
+ document.getElementById("lightbox").style.display="none";
+ document.body.style.overflow="auto";
+}
+//fooetr
+
+const footer = document.querySelector("footer");
+const whatsappFloat = document.querySelector(".whatsapp");
+
+const footerObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      whatsappFloat.style.opacity = "0";
+      whatsappFloat.style.pointerEvents = "none";
+    }else{
+      whatsappFloat.style.opacity = "1";
+      whatsappFloat.style.pointerEvents = "auto";
+    }
+  });
+},{threshold:0.1});
+
+footerObserver.observe(footer);
+
+
+// /* ================= SERVICES 3D EFFECT ================= */
+
+const translations = {
+  fr: {
+    slogan: "Nous vous aidons à construire un corps plus fort et un esprit plus sain.",
+    hours_title: "Horaires",
+    hours: "Samedi – Jeudi : 08h – 22h | Vendredi : 15h – 22h",
+    contact_title: "Contact",
+    address: "Berriane, Ghardaïa"
+  },
+  en: {
+    slogan: "We help you build a stronger body and a healthier mind.",
+    hours_title: "Hours",
+    hours: "Saturday – Thursday: 8 AM – 10 PM | Friday: 3 PM – 10 PM",
+    contact_title: "Contact",
+    address: "Berriane, Ghardaïa"
+  },
+  ar: {
+    slogan: "نساعدك على بناء جسم أقوى وعقل أكثر صحة.",
+    hours_title: "أوقات العمل",
+    hours: "السبت – الخميس: 08:00 – 22:00 | الجمعة: 15:00 – 22:00",
+    contact_title: "اتصل بنا",
+    address: "بريانـة، غرداية"
+  }
+};
+
+function setLang(lang) {
+
+  document.documentElement.lang = lang;
+  document.body.dir = lang === "ar" ? "rtl" : "ltr";
+
+  /* Traduction générale */
+  document.querySelectorAll("[data-fr]").forEach(el => {
+    el.textContent = el.dataset[lang];
+  });
+
+  /* Traduction footer */
+  document.querySelectorAll("[data-lang]").forEach(el => {
+    el.textContent = translations[lang][el.dataset.lang];
+  });
+
+  localStorage.setItem("lang", lang);
+}
+
+/* Charger la langue */
+setLang(localStorage.getItem("lang") || "fr");
+
+
+
+
+/* TOGGLE PLANNING + SCROLL */
+document.querySelectorAll(".planning-btn").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+  const wrapper = btn.closest(".service-wrapper");
+  const planning = wrapper.querySelector(".planning-mini");
+
+  planning.classList.toggle("active");
+
+  btn.textContent = planning.classList.contains("active")
+   ? btn.dataset.less
+   : btn.dataset.more;
+
+  if(planning.classList.contains("active")){
+   setTimeout(()=>{
+    planning.scrollIntoView({behavior:"smooth",block:"center"});
+   },150);
+  }
+ });
+});
+
+/* 3D EFFECT */
+document.querySelectorAll(".service-card,.planning-mini").forEach(card=>{
+ card.addEventListener("mousemove",e=>{
+  const r=card.getBoundingClientRect();
+  const x=e.clientX-r.left;
+  const y=e.clientY-r.top;
+  card.style.transform=`rotateY(${(x-r.width/2)/30}deg)
+                        rotateX(${-(y-r.height/2)/30}deg)
+                        scale(1.02)`;
+ });
+ card.addEventListener("mouseleave",()=>{
+  card.style.transform="rotateX(0) rotateY(0) scale(1)";
+ });
+});
+
+/* SCROLL REVEAL */
+const obs=new IntersectionObserver(entries=>{
+ entries.forEach(e=>{
+  if(e.isIntersecting) e.target.classList.add("show");
+ });
+},{threshold:0.2});
+document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
+
+/* TRANSLATION */
+
+function setLang(lang){
+
+ /* TEXTS */
+ document.querySelectorAll("[data-fr]").forEach(el=>{
+  el.textContent = el.dataset[lang];
+ });
+
+ /* PLANNING BUTTONS */
+ document.querySelectorAll(".planning-btn").forEach(btn=>{
+  btn.dataset.more = btn.getAttribute("data-more-"+lang);
+  btn.dataset.less = btn.getAttribute("data-less-"+lang);
+  btn.textContent = btn.dataset.more;
+ });
+
+ localStorage.setItem("lang",lang);
+}
+
+/* LOAD LANG */
+const savedLang = localStorage.getItem("lang") || "fr";
+setLang(savedLang);
+
+/*----------*/
+
+
+
+
+
+/* ================= SLIDER ================= */
+const images=[
+ "PIC/coach3.jpg",
+ "PIC/coach2.jpg",
+ "PIC/coach1.jpg"
+];
+let index=0;
+
+function showCoach(){
+ const img=document.getElementById("coachImg");
+ img.style.opacity=0;
+ setTimeout(()=>{
+  img.src=images[index];
+  img.style.opacity=1;
+ },200);
+}
+
+function nextCoach(){
+ index=(index+1)%images.length;
+ showCoach();
+}
+
+function prevCoach(){
+ index=(index-1+images.length)%images.length;
+ showCoach();
+}
+
+
+
+/* ================= SCROLL REVEAL ================= */
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("show");
+  }
+ });
+},{threshold:.2});
+
+document.querySelectorAll(".animate").forEach(el=>{
+ observer.observe(el);
+});
+
+/* ================= 3D HOVER ================= */
+document.querySelectorAll(".coach-slider img").forEach(card=>{
+ card.addEventListener("mousemove",e=>{
+  const r=card.getBoundingClientRect();
+  const x=e.clientX-r.left;
+  const y=e.clientY-r.top;
+
+  card.style.transform=
+   `rotateY(${(x-r.width/2)/30}deg)
+    rotateX(${-(y-r.height/2)/30}deg)
+    scale(1.04)`;
+ });
+
+ card.addEventListener("mouseleave",()=>{
+  card.style.transform="rotateX(0) rotateY(0) scale(1)";
+ });
+});
+
+
+//------------------------------------------------
+document.querySelectorAll(".faq-question").forEach(btn=>{
+ btn.addEventListener("click",()=>{
+
+  const item = btn.parentElement;
+  const icon = btn.querySelector(".icon");
+  const isOpen = item.classList.contains("active");
+
+  // اغلق الجميع
+  document.querySelectorAll(".faq-item").forEach(i=>{
+   i.classList.remove("active");
+   i.querySelector(".icon").textContent = "+";
+  });
+
+  // افتح واحد فقط
+  if(!isOpen){
+   item.classList.add("active");
+   icon.textContent = "×";
+  }
+ });
+});
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
